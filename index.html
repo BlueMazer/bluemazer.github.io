@@ -2,19 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Website</title>
+  <title>Rayan Raad – CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 60px auto;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .pdf-container {
+      width: 100%;
+      height: calc(100vh - 80px);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <h1>Rayan Raad</h1>
-  <p>This is my personal website.</p>
+
+  <h1>Rayan Raad — Curriculum Vitae</h1>
+
+  <div class="pdf-container">
+    <iframe src="cv.pdf"></iframe>
+  </div>
+
+  <p style="text-align:center">
+    <a href="cv.pdf">Download PDF</a>
+  </p>
+
 </body>
 </html>
