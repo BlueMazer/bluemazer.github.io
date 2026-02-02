@@ -50,6 +50,60 @@
       padding: 0 20px 40px;
     }
 
+    /* Profile + Bio */
+    .profile {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    .profile-text h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .profile-text p {
+      margin-top: 10px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    /* Skills */
+    .skills {
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+
+    .skills h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fafafa;
+    }
+
+    /* CV Card */
     .cv-card {
       background: var(--card);
       border-radius: 12px;
@@ -98,7 +152,13 @@
       margin-top: 30px;
     }
 
-    @media (max-width: 600px) {
+    /* Responsive */
+    @media (max-width: 700px) {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
       iframe {
         height: 75vh;
       }
@@ -114,6 +174,39 @@
   </header>
 
   <main>
+
+    <!-- Profile + Bio -->
+    <section class="profile">
+      <img src="profile.jpg" alt="Profile photo of Rayan Raad">
+
+      <div class="profile-text">
+        <h2>About</h2>
+        <p>
+          Mechanical engineering student with a focus on robotics, automation,
+          and software-driven systems. Experience with control systems,
+          inverse kinematics, and technical leadership in multidisciplinary teams.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills">
+      <h3>Skills</h3>
+      <div class="skill-list">
+        <span class="skill">Python</span>
+        <span class="skill">C++</span>
+        <span class="skill">MATLAB</span>
+        <span class="skill">ROS 2</span>
+        <span class="skill">Drake</span>
+        <span class="skill">Linux</span>
+        <span class="skill">Control Systems</span>
+        <span class="skill">Robotics</span>
+        <span class="skill">Automation</span>
+        <span class="skill">Engineering Statistics</span>
+      </div>
+    </section>
+
+    <!-- CV -->
     <div class="cv-card">
       <div class="cv-header">
         <span>Curriculum Vitae (PDF)</span>
@@ -121,6 +214,7 @@
       </div>
       <iframe src="Rayan_Raad_CV.pdf"></iframe>
     </div>
+
   </main>
 
   <footer>
