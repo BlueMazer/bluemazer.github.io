@@ -15,6 +15,11 @@
       --accent: #1f2937;
     }
 
+    /* Fluid font sizing */
+    html {
+      font-size: clamp(15px, 1.1vw, 17px);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -53,10 +58,12 @@
     /* Profile + Bio */
     .profile {
       max-width: 900px;
-      margin: 0 auto 40px;
-      display: flex;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
       align-items: center;
-      gap: 40px;
     }
 
     .profile img {
@@ -82,6 +89,7 @@
     .skills {
       max-width: 900px;
       margin: 0 auto 50px;
+      padding: 0 20px;
     }
 
     .skills h3 {
@@ -96,8 +104,8 @@
     }
 
     .skill {
-      font-size: 0.9rem;
-      padding: 6px 12px;
+      font-size: 0.85rem;
+      padding: 8px 14px;
       border: 1px solid var(--border);
       border-radius: 999px;
       background: #fafafa;
@@ -131,8 +139,8 @@
       font-size: 0.9rem;
       color: var(--accent);
       border: 1px solid var(--border);
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 10px 14px;
+      border-radius: 8px;
     }
 
     .cv-header a:hover {
@@ -141,10 +149,11 @@
 
     iframe {
       width: 100%;
-      height: 85vh;
+      height: clamp(70vh, 80vh, 90vh);
       border: none;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       font-size: 0.85rem;
@@ -155,12 +164,14 @@
     /* Responsive */
     @media (max-width: 700px) {
       .profile {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
       }
+    }
 
+    @media (max-width: 480px) {
       iframe {
-        height: 75vh;
+        display: none;
       }
     }
   </style>
@@ -177,14 +188,14 @@
 
     <!-- Profile + Bio -->
     <section class="profile">
-      <img src="Placeholder Headshot.png" alt="Profile photo of Rayan Raad">
+      <img src="profile.jpg" alt="Profile photo of Rayan Raad">
 
       <div class="profile-text">
         <h2>About</h2>
         <p>
-          Mechanical engineering student with a focus on robotics, automation,
-          and software-driven systems. Experience with control systems,
-          automation, and technical leadership in multidisciplinary teams.
+          Mechanical engineering student focused on robotics, automation,
+          and software-driven systems. Experienced in control systems,
+          inverse kinematics, and technical leadership in multidisciplinary teams.
         </p>
       </div>
     </section>
