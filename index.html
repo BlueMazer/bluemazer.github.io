@@ -42,26 +42,27 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* Dark mode toggle button */
+    /* Minimalist Dark Mode Toggle */
     .dark-mode-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
       background: var(--card);
       color: var(--text);
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
       border: 1px solid var(--border);
       cursor: pointer;
       z-index: 100;
-      display: flex;
-      align-items: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
     }
 
-    .dark-mode-toggle input {
-      margin-right: 6px;
-      cursor: pointer;
+    .dark-mode-toggle:hover {
+      border-color: var(--accent);
     }
 
     header {
@@ -117,13 +118,11 @@
       color: var(--text);
     }
 
-    /* Skills */
+    /* Fixed Skills - Now using CSS variables */
     .skills {
       max-width: 900px;
       margin: 0 auto 50px;
       padding: 0 20px;
-      font-family: Arial, sans-serif;       /* fixed font */
-      color: #111 !important;               /* fixed text color */
     }
 
     .skills h3 {
@@ -140,11 +139,10 @@
     .skill {
       font-size: 0.85rem;
       padding: 8px 14px;
-      border: 1px solid #e5e7eb !important; /* fixed border */
+      border: 1px solid var(--border); 
       border-radius: 999px;
-      background: #fafafa !important;        /* fixed background */
-      color: #111 !important;
-      font-family: Arial, sans-serif;
+      background: var(--card);
+      color: var(--text);
     }
 
     /* CV Card */
@@ -162,7 +160,7 @@
       align-items: center;
       padding: 14px 20px;
       border-bottom: 1px solid var(--border);
-      background: #fafafa;
+      background: var(--bg); /* Fixed to adapt to mode */
     }
 
     .cv-header span {
@@ -179,10 +177,6 @@
       border-radius: 8px;
     }
 
-    .cv-header a:hover {
-      background: #f1f5f9;
-    }
-
     iframe {
       width: 100%;
       height: clamp(70vh, 80vh, 90vh);
@@ -196,7 +190,6 @@
       margin-top: 30px;
     }
 
-    /* Responsive */
     @media (max-width: 700px) {
       .profile {
         grid-template-columns: 1fr;
@@ -209,11 +202,9 @@
 
 <body>
 
-  <!-- Dark mode toggle -->
-  <label class="dark-mode-toggle">
-    <input type="checkbox" id="darkToggle">
+  <button id="darkToggle" class="dark-mode-toggle">
     Dark Mode
-  </label>
+  </button>
 
   <header>
     <h1>Rayan Raad</h1>
@@ -221,11 +212,8 @@
   </header>
 
   <main>
-
-    <!-- Profile + Bio -->
     <section class="profile">
       <img src="Temp Headshot.png" alt="Profile photo of Rayan Raad">
-
       <div class="profile-text">
         <h2>About</h2>
         <p>
@@ -236,7 +224,6 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section class="skills">
       <h3>Skills</h3>
       <div class="skill-list">
@@ -255,7 +242,6 @@
       </div>
     </section>
 
-    <!-- CV -->
     <div class="cv-card">
       <div class="cv-header">
         <span>Curriculum Vitae (PDF)</span>
@@ -263,7 +249,6 @@
       </div>
       <iframe src="Rayan_Raad_CV.pdf"></iframe>
     </div>
-
   </main>
 
   <footer>
@@ -271,9 +256,14 @@
   </footer>
 
   <script>
-    const toggle = document.getElementById('darkToggle');
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark', toggle.checked);
+    const btn = document.getElementById('darkToggle');
+    
+    btn.addEventListener('click', () => {
+      // Toggle the 'dark' class on the body
+      const isDark = document.body.classList.toggle('dark');
+      
+      // Update the button text based on the mode
+      btn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
     });
   </script>
 
